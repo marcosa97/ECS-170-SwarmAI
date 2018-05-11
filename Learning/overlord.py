@@ -1,6 +1,6 @@
 #Copyright @ ECS 170 Project team IF STMT 4 LYFE
 
-import Constant_Parameters as Param
+import hive_command
 from keras.models import Model
 from keras.layers import BatchNormalization as BN, LeakyReLU as LR, Dense, add, Input, Flatten
 from keras.optimizers import Adam
@@ -9,21 +9,25 @@ from keras.callbacks import ModelCheckpoint
 import numpy as np
 import tensorflow as tf
 
-class NeuralNetwork:
+class Command:
     def __init__(self):
-        self.learning_rate = Param.INITIAL_LEARNING_RATE
-        self.model = self.build_model()
 
-    def predict(self, state):
-        return self.model.predict(state)
+        self.learning_rate = hive_command.INITIAL_LEARNING_RATE
+        self.mind = self.fertilize()
 
-    def train(self, input_state, target_val, target_prob, count):
+    def subjugate(self, state):
+
+        strategies = self.mind.predict(state)
+
+        return strategies.argmax()
+
+    def evolve(self, input_state, target_val, target_prob, count):
 
         print("Training iteration: ", str(count))
         training_input = []
         prob_output = []
         val_output = []
-        for i in range(0, Param.BATCH_TRAIN_COUNT * Param.BATCH_SIZE):
+        for i in range(0, hive_command.BATCH_TRAIN_COUNT * hive_command.BATCH_SIZE):
             num = np.random.random_integers(0, len(input_state) - 1)
             training_input.append(input_state[num])
             prob_output.append(target_prob[num])
@@ -34,19 +38,19 @@ class NeuralNetwork:
 
         self.model.fit(np.array(training_input),
                        [np.array(val_output), np.array(prob_output)],
-                       batch_size = Param.BATCH_SIZE,
-                       epochs = Param.EPOCHS,
+                       batch_size = hive_command.BATCH_SIZE,
+                       epochs = hive_command.EPOCHS,
                        callbacks = checkpoint)
 
     def checkpoint(self, iteration, name):
-l
-        if iteration % Param.SAVE_INTERVAL == 0:
+
+        if iteration % hive_command.SAVE_INTERVAL == 0:
             file = open("iteration.txt", 'r+')
             current_count = int(file.readline())
             file.close()
             open("iteration.txt", 'w').close()
             file = open("iteration.txt", 'r+')
-            file.write(str(current_count + Param.SAVE_INTERVAL))
+            file.write(str(current_count + hive_command.SAVE_INTERVAL))
             file.close()
             return [ModelCheckpoint(name,
                                     verbose=1,
@@ -58,10 +62,10 @@ l
     def residual_layer(self, initial_input):
 
         output_1 = Dense(
-            64,
+            hive_command.RES_LAYER_NODE_COUNT,
             use_bias=False,
             activation='sigmoid',
-            kernel_regularizer=regularizers.l2(Param.L2_REG_CONST)
+            kernel_regularizer=regularizers.l2(hive_command.L2_REG_CONST)
         )(initial_input)
 
         output_2 = BN(axis=1)(output_1)
@@ -69,10 +73,10 @@ l
         output_3 = LR()(output_2)
 
         output_4 = Dense(
-            64,
+            hive_command.RES_LAYER_NODE_COUNT,
             use_bias=False,
             activation='sigmoid',
-            kernel_regularizer=regularizers.l2(Param.L2_REG_CONST)
+            kernel_regularizer=regularizers.l2(hive_command.L2_REG_CONST)
         )(output_3)
 
         output_5 = BN(axis=1)(output_4)
@@ -83,22 +87,22 @@ l
 
         return final_output
 
-    def build_model(self):
+    def fertilize(self):
 
-        initial_input = Input(Param.INPUT_DIM)
+        initial_input = Input(hive_command.INPUT_DIM)
 
         output_1 = Dense(
             128,
             use_bias=False,
             activation='sigmoid',
-            kernel_regularizer=regularizers.l2(Param.L2_REG_CONST),
+            kernel_regularizer=regularizers.l2(hive_command.L2_REG_CONST),
         )(initial_input)
 
         output_2 = Dense(
-            64,
+            hive_command.RES_LAYER_NODE_COUNT,
             use_bias=False,
             activation='sigmoid',
-            kernel_regularizer=regularizers.l2(Param.L2_REG_CONST),
+            kernel_regularizer=regularizers.l2(hive_command.L2_REG_CONST),
         )(output_1)
 
 
@@ -107,7 +111,7 @@ l
         res_input = LR()(output_3)
         res_output = res_input
 
-        for i in range(0, Param.RES_LAYER_COUNT):
+        for i in range(0, hive_command.RES_LAYER_COUNT):
             res_output = self.residual_layer(res_input)
             res_input = res_output
 
@@ -115,17 +119,18 @@ l
             11,
             use_bias=False,
             activation='linear',
-            kernel_regularizer=regularizers.l2(Param.L2_REG_CONST),
+            kernel_regularizer=regularizers.l2(hive_command.L2_REG_CONST),
             name = 'policy'
         )(res_output)
 
         model = Model(inputs=[initial_input], outputs=[policy])
 
         model.compile(loss='mean_squared_error',
-                      optimizer = Adam(lr=Param.INITIAL_LEARNING_RATE, beta_1=0.9, beta_2=0.999, epsilon = 10E-8),
+                      optimizer = Adam(lr = hive_command.INITIAL_LEARNING_RATE, beta_1 = 0.9, beta_2 = 0.999, epsilon = 10E-8),
         )
 
         return model
 
-    def show_network_summary(self):
-        print(self.model.summary())
+    def autopsis(self):
+
+        print(self.mind.summary())
