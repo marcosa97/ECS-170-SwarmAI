@@ -1,4 +1,4 @@
-# Copyright @ William Deng, 2018
+#Copyright @ ECS 170 Project team IF STMT 4 LYFE
 
 import Constant_Parameters as Param
 from keras.models import Model
