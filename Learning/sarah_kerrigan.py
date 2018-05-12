@@ -3,17 +3,52 @@
 import overlord
 import numpy as np
 import copy as clone
+import hive_command as hive
 
 
-# Will add non-deterministic behavior using monomial distribution & rand
-def command(minion_state):
-	carrier = overlord.Command()
-	command_list = []
-	minion_count = len(minion_state)
-	for minion in minion_state:
-		command_list.append(carrier.subjugate(minion))
+class queen_of_blades:
+	def __init__(gamma, lambda_, alpha, episodes)
+		self.gamma = hive.gamma # SARSA gamma constant
+		self.lambda_ = hive.lambda_ # SARSA lambda constant
+		self.alpha = hive.alpha # SARSA learning rate
+		self.episodes = hive.episodes # SARSA maximum episodes
+		self.Q_state_list = [] # list keeping track of Q(s,a) pairs
 
-	return command_list
+	def command(minion_state):
+
+		carrier = overlord.Command()
+
+		command_list = []
+
+		for minion_state in minion_states:
+			will = carrier.subjugate(minion_state)
+			Q_state_list.append(Q_state(minion, will))
+			command_list.append(will)
+
+		return command_list
+
+	def SARSA(self):
+
+	def update_reward(self, reward)
+
+
+
+
+class Q_state:
+	def __init__(state, choice, reward)
+		self.state = state
+		self.choice = choice
+		self.reward = reward
+		self.e_val = 1
+
+	def update_state(self, gamma, lambda_, alpha, delta)
+		self.reward += alpha * delta * self.e_val
+		self.e_val *= gamma * lambda_
+
+
+
+
+
 
 def main():
 	test_state = np.zeros((1, 1,50))
@@ -22,25 +57,6 @@ def main():
 		state_list.append(clone.deepcopy(test_state))
 	result = command(state_list)
 	print(result)
-
-
-# Not yet working, need to rewrite system in class form, and switch function names
-def SARSA(self):
-	# This gets called after action is taken, and a reward is returned
-	alpha = self.alpha
-	gamma = self.gamma
-	lambda_ = self.lambda_
-	state_vec = self.state_sets
-	new_state = self.command(self.current_state)
-	delta = r + gamma * self.command(new_state) - state_vec[-1].Q_val
-	elig_vec = self.e_trace
-	elig_vec.append(1)
-	state_vec.append(new_state)
-
-	for i in range(len(state_vec) - 1, 0):
-		delta = reward_vec[i] + gamma * state_vec[i].Q_val - state_vec[i-1].Q_val
-		state_vec[i-1].reward = state_vec[i].reward + alpha * delta * elig_vec[i]
-		elig_vec[i-1] = gamma*lambda_*elig_vec[i] + self.reward_gradient * state_vec[i].Q_val
 
 
 main()

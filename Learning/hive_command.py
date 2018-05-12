@@ -10,3 +10,10 @@ BATCH_TRAIN_COUNT = 50 # Number of mimi-batches per epoch
 SAVE_INTERVAL = 5 # How many training iterations before saving the model.
 BATCH_SIZE = 4 # Size of each mini-batch
 EPOCHS = 1 # Number times a single set of data will be trained
+
+
+#SARSA(Lambda)
+alpha = 0.001
+lambda_ = 0.9
+gamma = 0.8
+episodes = 1000
