@@ -19,7 +19,7 @@ class Command:
 
         strategies = self.mind.predict(state)
 
-        return strategies.argmax()
+        return strategies.argmax(), max(strategies)
 
     def evolve(self, input_state, target_val, target_prob, count):
 
