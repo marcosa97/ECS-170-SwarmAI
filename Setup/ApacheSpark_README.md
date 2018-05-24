@@ -71,7 +71,7 @@ sudo apt-get install mysql-server
 ```
 Run through the secure installation setup. I personally kept security to a minimum for ease of use.
 ```
-mysql_secure_installation
+sudo mysql_secure_installation
 ```
 
 Check to see if MySQL is running
