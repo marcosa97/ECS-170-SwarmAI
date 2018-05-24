@@ -57,6 +57,12 @@ Spark context available as sc
 scala>
 ```
 
+If this step is unsuccessful, roll back java to version 8.
+```
+sudo apt-get install openjdk-8-jre
+sudo update-java-alternatives --set
+```
+
 ## MySQL setup
 The next step will be getting our SQL server running. To start we will use the package manager to get MySQL Server.
 ```
