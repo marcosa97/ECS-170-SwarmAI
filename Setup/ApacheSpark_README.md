@@ -15,14 +15,14 @@ sudo apt-get install default-jre
 
 ### Download Spark
 To start out you will need to download Apache Spark.
-The download I am for this README can be found [here](https://www.apache.org/dyn/closer.lua/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz).
+The download I am  using for this README can be found [here](https://www.apache.org/dyn/closer.lua/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz).
 
 We will also need to get MySQL, but we will do that a bit later on.
 
 ## Extracting and Installing Spark
 Now that you have Spark downloaded, you can extract it from either your file explorer or you with this command. 
 ```
-tar xvf spark-1.3.1-bin-hadoop2.6.tgz 
+tar xvf spark-2.3.0-bin-hadoop2.7.tgz 
 ```
 
 You will next need to move the files to its own directory in **/usr/local/spark**.
