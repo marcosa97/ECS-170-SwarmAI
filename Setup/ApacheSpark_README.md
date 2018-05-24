@@ -32,7 +32,7 @@ sudo mv spark-2.3.0-bin-hadoop2.7/ /usr/local/spark
 
 Now we need to prepare the environment.
 ```
-export PATH = $PATH:/usr/local/spark/bin
+export PATH=$PATH:/usr/local/spark/bin
 source ~/.bashrc
 ```
 
