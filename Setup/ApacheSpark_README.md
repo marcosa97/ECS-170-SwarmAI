@@ -119,7 +119,12 @@ Now that we have Spark and our demo MySQL database running, let's connect the tw
 You will first need to download the MySQL jar which contains all of the classes need to connect PySpark to a MySQL database.
 You can get that file [here](http://www.java2s.com/Code/JarDownload/mysql/mysql.jar.zip) 
 
-Extract the file in your desired location and launch PySpark with the following command in a new terminal.
+Extract the file in your desired location and launch PySpark with the following command in a new terminal. 
+If this is a new terminal, set up the environment again first.
+```
+export PATH=$PATH:/usr/local/spark/bin
+source ~/.bashrc
+```
 ```
 pyspark --jars /path/to/mysql.jar
 ```
