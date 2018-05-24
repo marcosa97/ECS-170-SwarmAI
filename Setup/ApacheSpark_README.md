@@ -15,7 +15,7 @@ sudo apt-get install default-jre
 
 ### Download Spark
 To start out you will need to download Apache Spark.
-The download I am  using for this README can be found [here](https://www.apache.org/dyn/closer.lua/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz).
+The download I am  using for this README can be found [here](//apache.claz.org/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz).
 
 We will also need to get MySQL, but we will do that a bit later on.
 
