@@ -239,7 +239,7 @@ gcloud ml-engine jobs submit training $JOB_NAME \
     --verbosity DEBUG
 ```
 
-You can monitor the progress on the command-line or by going to **ML Engine** > **Jobs** on Google Cloud Platform Console
+You can monitor the progress on the command-line or by going to **ML Engine** > **Jobs** on [Google Cloud Platform Console](https://console.cloud.google.com/home/)
 
 Once the process is complete you can view the results through TensorBoard again.
 ```
