@@ -65,9 +65,9 @@ def SARSA(initial_state, MAX_EPISODE_COUNT, lambda, gamma, alpha)
 
 This algorithm is edited to fit our objective. Some of the changes include:
 
-	* Trace replacement is used because of the extremely low probability of visiting the same state twice
-	* Policy network parameters are not updated in the algorithm, but the data from the training is saved as training data. To accomodate distributed iteration of this algorithm in an A3C training algorithm, the data is saved to a database, which will be used to train the policy network independently.
-	* A new while loop is added outside of the episode while loop to continuously loop the algorithm if the game is not over. If the game terminates during an action, the current data is sent to the data base, and the algorithm terminates
+* Trace replacement is used because of the extremely low probability of visiting the same state twice
+* Policy network parameters are not updated in the algorithm, but the data from the training is saved as training data. To accomodate distributed iteration of this algorithm in an A3C training algorithm, the data is saved to a database, which will be used to train the policy network independently.
+* A new while loop is added outside of the episode while loop to continuously loop the algorithm if the game is not over. If the game terminates during an action, the current data is sent to the data base, and the algorithm terminates
 
 
 
