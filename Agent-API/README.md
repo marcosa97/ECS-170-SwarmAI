@@ -7,8 +7,14 @@ API Contributors:
 
 As the Agent API team for this project, we were in charge of implementing a wrapper around the Starcraft II game's client API to make interfacing and communicating between our team's Neural Network and the game easier. In the end, we ended up using a modified version of Hannes Karppila's (@Dentosal) Starcraft II API Client for Python 3, which utilizes Blizzard's sc2 protobuf protocol. 
 
-## Setup
-To setup this team API
+## Linux Setup
+To set up the envorinment for the agent script to run in Linux, you will need to have the StarCraft II full game version 3.17. The game will have to live in ~/StarCraftII/ . 
+
+You can follow Blizzard's documentation for the Linux version here: https://github.com/Blizzard/s2client-proto#downloads  
+Again, make sure you download VERSION 3.17.
+
+You will need to download the Melee map pack as well.  
+
 
 ##TIMELINE: API TEAM PROCESS
 
