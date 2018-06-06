@@ -1,4 +1,4 @@
-#Agent API Team's Contributions and Work
+# Agent API Team's Work and Contributions
 API Contributors:
   -Marcos Alcantar
   -Natalie Bashenko
@@ -7,7 +7,7 @@ API Contributors:
 
 As the Agent API team for this project, we were in charge of implementing a wrapper around the Starcraft II game's client API to make interfacing and communicating between our team's Neural Network and the game easier. In the end, we ended up using a modified version of Hannes Karppila's (@Dentosal) Starcraft II API Client for Python 3, which utilizes Blizzard's sc2 protobuf protocol. 
 
-##Setup
+## Setup
 To setup this team API
 
 ##TIMELINE: API TEAM PROCESS
