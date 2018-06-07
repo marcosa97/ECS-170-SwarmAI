@@ -24,7 +24,7 @@ We used the Map Editor to create a custom map called **testing.SC2MAP**, to test
 When we created the **testing** custom map, there was some error messages popping up when we try to run our agent on the custom map. After digging the issue, we figured out that we need to change the **trigger** when we used the Map Editor. In the Map Editor, there is a **trigger** section, where you can modify some conditions, such as the winning conditions. In this section, we delete the winning conditions, so that when we run our agent on the map, the game will not terminate itself immediately (because our custom map only contains two Hydralisks and one Zergling, without any workers or buildings, therefore the game is in *terminating* state automatically).
 
 
-##TIMELINE: API TEAM PROCESS
+## TIMELINE: API TEAM PROCESS
 
 Week 1: C++ Library
 
