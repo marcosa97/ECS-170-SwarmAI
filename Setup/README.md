@@ -84,6 +84,7 @@ All you have to do from now on is enter this command into terminal/CMD. If you w
 ```
 gcloud compute --project "ecs170-swarmai-id" ssh --zone "us-east1-b" "api-instance-group-5v7p"
 ```
+All of the files for the API, Cloud, and located in /home/seana/. The VM will automatic create an empty home folder for you when you login so you will need to navigate to mine.
 
 ### Viewing the Google Compute Console
 If you need to view any information about the cloud computing services, you can do that at the Compute portion of the [Google Cloud Console](https://cloud.google.com/compute/docs/console).
