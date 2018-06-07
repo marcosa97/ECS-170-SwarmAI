@@ -37,8 +37,6 @@ It should then ask you to login. Select 'Y'
 To continue, you must log in. Would you like to log in (Y/n)? Y
 ```
 
-**Warning:** This stage may give errors as the additional user access is untested. If you have any issues, contact Sean. It probably isn't your fault.
-
 Login to the @ucdavis.edu emails you provided to the team and click **Allow**.
 **Note:** I have set your accounts to have full owner permissions. Please do not make any changes to the project settings without consulting the team first.
 
@@ -58,8 +56,7 @@ It will then ask you
 ```
 Do you want to configure a default Compute Region and Zone? (Y/n)?
 ```
-
-Select Y and choose **us-west1-b**. You may need to use different regions later, but this should be fine for now. 
+Enter 'n', the regions for all of the systems are already set.
 
 # Testing the ml-engine (optional)
 
