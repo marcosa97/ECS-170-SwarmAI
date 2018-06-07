@@ -10,7 +10,7 @@ As the Agent API team for this project, we were in charge of implementing a wrap
 To set up the envorinment for the agent script to run in Linux, you will need to have the StarCraft II full game version 3.17. The game will have to live in ~/StarCraftII/ . 
 
 You can follow Blizzard's documentation for the Linux version here: https://github.com/Blizzard/s2client-proto#downloads  
-Again, make sure you download VERSION 3.17.
+Again, make sure you download **VERSION 3.17**, or you will not be able to run the replay.
 
 ## Map
 You will need to download the Melee map pack. You can find the instructions provided in the Blizzard's documentation.  
