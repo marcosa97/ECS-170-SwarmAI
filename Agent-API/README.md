@@ -19,7 +19,7 @@ Additionally, you can create any custom map by using the Windows version of Star
 
 We used the Map Editor to create a custom map called **testing.SC2MAP**, to test our agent. In this map, it is a plain map (without any terrains or height). Additionally, there are two ally units (Hydralisk) and one enemy unit (Zergling). The hit points of Zergling is increased twice of its original health and the moving speed is decreased twice of its original health. The reason of changing the data of Zergling is because in our project, we are training ranged ally units to efficiently attack melee enemy units. In StarCraft II, Zergling is a melee unit. However, originally Zergling is a high-speed and low-damage units. It is not a good choice to train our SwarmAI. Therefore, by reversing its properties, the Zergling will be the best enemy units we would like to simulate our AI.
 
-**CAUTION** 
+#CAUTION#
 When we created the **testing** custom map, there was some error messages popping up when we try to run our agent on the custom map. After digging the issue, we figured out that we need to change the **trigger** when we used the Map Editor. In the Map Editor, there is a **trigger** section, where you can modify some conditions, such as the winning conditions. In this section, we delete the winning conditions, so that when we run our agent on the map, the game will not terminate itself immediately (because our custom map only contains two Hydralisks and one Zergling, without any workers or buildings, therefore the game is in *terminating* state automatically).
 
 
