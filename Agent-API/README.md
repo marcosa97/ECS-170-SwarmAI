@@ -3,7 +3,6 @@ API Contributors:
   -Marcos Alcantar
   -Natalie Bashenko
   -Tu-Ning Ting
-  -Aaron Jenkins
 
 As the Agent API team for this project, we were in charge of implementing a wrapper around the Starcraft II game's client API to make interfacing and communicating between our team's Neural Network and the game easier. In the end, we ended up using a modified version of Hannes Karppila's (@Dentosal) Starcraft II API Client for Python 3, which utilizes Blizzard's sc2 protobuf protocol. 
 
@@ -13,7 +12,15 @@ To set up the envorinment for the agent script to run in Linux, you will need to
 You can follow Blizzard's documentation for the Linux version here: https://github.com/Blizzard/s2client-proto#downloads  
 Again, make sure you download VERSION 3.17.
 
-You will need to download the Melee map pack as well.  
+## Map
+You will need to download the Melee map pack. You can find the instructions provided in the Blizzard's documentation.  
+
+Additionally, you can create any custom map by using the Windows version of StarCraft II. The application is called Map Editor, which is in the same directory as the StarCraft II executable is. By using Map editor, you can do many things such as setting your spawn places, setting the units you would like to have in the beginning of the game, and adding terrains, and so on. Moreover, you are also allowed to change the data, such as the hit points and moving speed of a kind of unit.
+
+We used the Map Editor to create a custom map called **testing.SC2MAP**, to test our agent. In this map, it is a plain map (without any terrains or height). Additionally, there are two ally units (Hydralisk) and one enemy unit (Zergling). The hit points of Zergling is increased twice of its original health and the moving speed is decreased twice of its original health. The reason of changing the data of Zergling is because in our project, we are training ranged ally units to efficiently attack melee enemy units. In StarCraft II, Zergling is a melee unit. However, originally Zergling is a high-speed and low-damage units. It is not a good choice to train our SwarmAI. Therefore, by reversing its properties, the Zergling will be the best enemy units we would like to simulate our AI.
+
+**CAUTION** 
+When we created the **testing** custom map, there was some error messages popping up when we try to run our agent on the custom map. After digging the issue, we figured out that we need to change the **trigger** when we used the Map Editor. In the Map Editor, there is a **trigger** section, where you can modify some conditions, such as the winning conditions. In this section, we delete the winning conditions, so that when we run our agent on the map, the game will not terminate itself immediately (because our custom map only contains two Hydralisks and one Zergling, without any workers or buildings, therefore the game is in *terminating* state automatically).
 
 
 ##TIMELINE: API TEAM PROCESS
