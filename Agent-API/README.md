@@ -18,6 +18,11 @@ If the script is run on a Windows machine with the full Starcraft II game instal
 You can follow Blizzard's documentation for the Linux version here: https://github.com/Blizzard/s2client-proto#downloads  
 Again, make sure you download **VERSION 3.17**, or you will not be able to run the replay.  
 
+## 2) Download maps
+You will need to download maps as well. In the game's directory "StarCraftII", rename the "Maps" folder to "maps" or create a new folder called "maps". From the same page where the Linux game is downloaded, download the Melee map pack and and the Ladder 2017 Season 1 and extract those into the "maps" folder.
+
+After that, create a new directory in that "maps" directory called "mini_games". Download the map "testing.SC2Map" that is in this repository in the location ECS-170-SwarmAI/Agent-API/Custom_Testing_Maps/ and place it in the "mini_games" directory. 
+
 ## 2) Install pip
 If you don't already have the Python package manager pip, you will need to install that. We recommend you use the python3 (3.6) one, but if that doesn't work, you can use the python2 one as well. To do so, you can run the command: 
 
@@ -44,9 +49,36 @@ Navigate to the directory shown under "Location" via:
 ```
 cd LOCATION_DIRECTORY
 ```
+## 3) Modify sc2 package's files
 
-## Map
-You will need to download the Melee map pack. You can find the instructions provided in the Blizzard's documentation.  
+Once you have navigated to the "Location" directory, you will need to replace two package files with our modifications. Change into the directory "sc2":
+
+```
+cd sc2
+```
+This directory contains the two files that will be replaced: game_data.py and unit.py
+You can find the new modified files in this repository's folder ECS-170-SwarmAI/Agent-API/Modified_sc2_files and download them anywhere. Once you have them downloaded, replace the ones in the sc2 directory with these new ones.
+
+For the "game_info.py" file, you will have to comment out line 38, which says the following: 
+self.map_ramps = _pxmap_sub_scale(self.pathing_grid, self.placement_    grid, self.terrain_height)
+This is so that the custom testing map works. 
+
+## 4) Running the agent script
+
+You should now be able to run an agent script. To test it out, you can navigate back to the installation files location (the one that is shown by pip show) and then change into the "examples" directory. Try running one of the example scripts, like zerg_rush.py, by running the following command:
+
+
+```
+python zerg_rush.py
+```
+Our agent script "new_agent3.py" can be run similarly by navigating to wherever the script is located in your machine. 
+
+```
+python new_agent3.py
+```
+A replay file called "Example2.SC2Replay" will automatically be created in the same directory as the script once the script is done running. 
+
+## Custom Maps
 
 Additionally, you can create any custom map by using the Windows version of StarCraft II. The application is called Map Editor, which is in the same directory as the StarCraft II executable is. By using Map editor, you can do many things such as setting your spawn places, setting the units you would like to have in the beginning of the game, and adding terrains, and so on. Moreover, you are also allowed to change the data, such as the hit points and moving speed of a kind of unit.
 
@@ -57,7 +89,7 @@ We used the Map Editor to create a custom map called **testing.SC2MAP**, to test
 When we created the **testing** custom map, there was some error messages popping up when we try to run our agent on the custom map. After digging the issue, we figured out that we need to change the **trigger** when we used the Map Editor. In the Map Editor, there is a **trigger** section, where you can modify some conditions, such as the winning conditions. In this section, we delete the winning conditions, so that when we run our agent on the map, the game will not terminate itself immediately (because our custom map only contains two Hydralisks and one Zergling, without any workers or buildings, therefore the game is in *terminating* state automatically).
 
 
-## Timeline
+## Project Timeline
 
 ### Week 1: C++ Library
 
