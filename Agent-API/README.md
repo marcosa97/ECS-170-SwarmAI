@@ -27,15 +27,22 @@ When we created the **testing** custom map, there was some error messages poppin
 ## Timeline
 
 ### Week 1: C++ Library
-File:
+
+#### File: main.cpp
 Run using VisualStudio
 
 Overview: With multiple tutorials, resources available, and universal familiarity of C++ by our API team, we began our work using the 
 Starcraft C++ Library. After the first week, however, we realized there would be difficulty interfacing the two different programming
 languages code with each other. We therefore aborted use of this api, and moved on to one that was python based.
 
+##### Functions:
+
+OnStep():
+Acquires and prints out data from the units on the screen. First all units are found, then data is extracted such as health, energy, shield, armor, x and y coordinates, and its cost used to make it with minerals/vespene.
+
 ### Week 2-3: PYSC2 Library
-File: simple_agent.py
+
+#### File: simple_agent.py
 Run with command: python -m pysc2.bin.agent --map testing --agent simple_agent.SimpleAgent --agent_race T
 
 Overview: This program automatically selects all the players units one by one, and moves them to another
@@ -44,15 +51,14 @@ The selected unit is given a move command which determines which direction it sh
 Currently, the program is hardcoded for units to move toward the enemy when the enemy appears 
 on the screens.
 
-Functions:
+##### Functions:
 
-	make_move takes in a selected units x and y coordinates, and a move:
-	move of 0 is for move backward, away from enemy
-	move of 1 is move toward enemy
-	move of 2 is attack enemy
-	movements are determined by comparing the distances NESW of the unit with the 
-	enemy location
-make_move(move, x, y):
+make_move takes in a selected units x and y coordinates, and a move:
+move of 0 is for move backward, away from enemy
+move of 1 is move toward enemy
+move of 2 is attack enemy
+movements are determined by comparing the distances NESW of the unit with the enemy location
+###### make_move(move, x, y):
 
 Arguments:
 
@@ -71,7 +77,7 @@ An array of the new target point to move to of the form [x,y], where x is the ne
   one pixel on the screen, we used K-Means Clustering to find the center of every unit's position. And since only one unit is given
   an action at every step, the units were held in an array, with the new array being evaluated after all units had been looped through.
 
-step(obs):
+###### step(obs):
 
 Arguments:
 
@@ -83,7 +89,7 @@ the make_move function, 3) making the unit attack the nearest enemy.
 
 
 
-File: our_agent.py
+#### File: our_agent.py
 
 
 After we managed to successfully move the unit, we realized that each unit was only able to move one step at a time. And in order for 
@@ -99,15 +105,15 @@ libraries. The raw S2Clientprotocol solved both these problems, and so we transi
 
 ### Week 4-5: S2clientprotocol Library
 
-File: new_agent3.py
+#### File: new_agent3.py
 
 Run with command: python3 new_agent3.py
 
 Must first replace old unit.py and data.py files with new ones to be able to extract all the data.
 
-Functions:
+##### Functions:
   
-extract_data(unit):
+###### extract_data(unit):
 
 Argument: 
 
@@ -128,7 +134,7 @@ An array of all the relevant data of that unit that will help the unit make
  the weapon speed]
 
 
-make_move2(move, x, y):
+###### make_move2(move, x, y):
 
 Arguments:
 
@@ -151,7 +157,7 @@ A target point for the unit to move to.
   unit data. Finally, another loop through the units is done to give each one an individual
   move that will maximize their reward.
 
-on_step(iteration):
+###### on_step(iteration):
 
 Argument:
 
