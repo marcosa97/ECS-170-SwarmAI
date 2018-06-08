@@ -78,6 +78,37 @@ python new_agent3.py
 ```
 A replay file called "Example2.SC2Replay" will automatically be created in the same directory as the script once the script is done running. 
 
+## Windows Setup
+
+To be able to run our script on Windows to be able to see the game as it happens, you will follow similar steps as the ones for Linux. 
+
+First of all, you will need to have the full version of the StarCraft II game installed for Windows. These are the steps that I followed to get the script running:
+
+1) Download pip for windows 
+	-Instructions here: https://github.com/BurntSushi/nfldb/wiki/Python-&-pip-Windows-installation
+	-https://bootstrap.pypa.io/
+	-Also, had to set up environment variables. Also included in link above
+2) Install Dentosal's StarCraft II API wrapper using the following command on the Windows Command Line
+
+```
+python -m pip install sc2 --user --upgrade
+```
+You can see in which directory the package is installed in by running a similar command to the Linux one:
+
+```
+python -m pip show sc2 --user --upgrade
+```
+You can then follow the same steps for modifying the files as we did for Linux (Step 3).
+
+2) Create a "maps" directory in the StarCraftII folder under the "Program Files (x86)" directory
+3) Download maps from Blizzard's Github: https://github.com/Blizzard/s2client-proto#downloads
+4) run any agent by doing 
+
+```
+python SCRIPT_NAME
+```
+The full game will load the game and play it in time-lapsed mode.
+
 ## Custom Maps
 
 Additionally, you can create any custom map by using the Windows version of StarCraft II. The application is called Map Editor, which is in the same directory as the StarCraft II executable is. By using Map editor, you can do many things such as setting your spawn places, setting the units you would like to have in the beginning of the game, and adding terrains, and so on. Moreover, you are also allowed to change the data, such as the hit points and moving speed of a kind of unit.
