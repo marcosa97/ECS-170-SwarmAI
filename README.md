@@ -51,5 +51,5 @@ The immediate future work is to complete all feature extraction, and then import
 
 ## Sources cited:
 
-1.Rogers, K. D., & Skabar, A. A. (2014). A Micromanagement Task Allocation System for Real-Time Strategy Games. IEEE Transactions on Computational Intelligence and AI in Games,6(1), 67-77. doi:10.1109/tciaig.2013.2297334
-2. Kun Shao, K., Shu, Y., & Zhao, D. (april 2018). StarCraft Micromanagement with Reinforcement Learning and Curriculum Transfer Learning. Neural Networks (IJCNN).
+	1.Rogers, K. D., & Skabar, A. A. (2014). A Micromanagement Task Allocation System for Real-Time Strategy Games. IEEE Transactions on Computational Intelligence and AI in Games,6(1), 67-77. doi:10.1109/tciaig.2013.2297334
+	2. Kun Shao, K., Shu, Y., & Zhao, D. (april 2018). StarCraft Micromanagement with Reinforcement Learning and Curriculum Transfer Learning. Neural Networks (IJCNN).
