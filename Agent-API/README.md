@@ -6,11 +6,44 @@ API Contributors:
 
 As the Agent API team for this project, we were in charge of implementing a wrapper around the Starcraft II game's client API to make interfacing and communicating between our team's Neural Network and the game easier. In the end, we ended up using a modified version of Hannes Karppila's (@Dentosal) Starcraft II API Client for Python 3, which utilizes Blizzard's sc2 protobuf protocol. 
 
-## Linux Setup
+## Linux Setup (Ubuntu)
+
+## 1) Download game
 To set up the envorinment for the agent script to run in Linux, you will need to have the StarCraft II full game version 3.17. The game will have to live in ~/StarCraftII/ . 
 
+Note: The API only supports a script-based interface on Linux. To actually see what happens when the agent script is ran, we save a replay in the same directory as the script. The replay can be opened through PySC2's replay functionality on Linux, or on the full game on Windows.
+
+If the script is run on a Windows machine with the full Starcraft II game installed, the game GUI will show the time-lapse of how the script is running.  
+
 You can follow Blizzard's documentation for the Linux version here: https://github.com/Blizzard/s2client-proto#downloads  
-Again, make sure you download **VERSION 3.17**, or you will not be able to run the replay.
+Again, make sure you download **VERSION 3.17**, or you will not be able to run the replay.  
+
+## 2) Install pip
+If you don't already have the Python package manager pip, you will need to install that. We recommend you use the python3 (3.6) one, but if that doesn't work, you can use the python2 one as well. To do so, you can run the command: 
+
+```
+sudo apt-get install python3-pip
+```
+For Python 2:
+```
+sudo apt-get install python-pip
+```
+## 3) Install sc2 package
+
+To install Dentosal's Starcraft II API client, along with all of its dependencies, run the following command
+```
+pip3 install --user --upgrade sc2
+```
+You can then find the location of the installation files via this command:  
+
+```
+pip3 show sc2
+```
+
+Navigate to the directory shown under "Location" via:
+```
+cd LOCATION_DIRECTORY
+```
 
 ## Map
 You will need to download the Melee map pack. You can find the instructions provided in the Blizzard's documentation.  
